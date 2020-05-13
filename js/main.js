@@ -4,9 +4,9 @@ window.addEventListener('load', init);
 
 // Available Levels
 const levels = {
-  easy: 5,
-  medium: 3,
-  hard: 2
+  easy: '5',
+  medium: '3',
+  hard: '2'
 }
 
 //To change level
@@ -102,7 +102,7 @@ function countdown() {
 //Check game Status
 function checkStatus() {
   if (!isPlaying && time === 0) {
-    message.innerHTML = 'Game Over!!!';
+    message.innerHTML = ';do ;dfKt ...';
     score = -1;
   }
 }
