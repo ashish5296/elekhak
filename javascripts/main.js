@@ -10,15 +10,16 @@ const levels = {
 }
 
 //Numbers in Preeti
-const numNepali = [')','!','@','#','$','%','^','&','*'];
+const numNepali = [')','!','@','#','$','%','^','&','*','('];
 
 //Convert Number to Nepali preeti
 function convertToNepaliDigit(number){
     var number = number.toString();
     var sliced = [];
-      for(i=0; i< number.length; i++){
+    var numberLength = number.length;
+    for(i=0; i < numberLength; i++){
         sliced.push(numNepali[number.substr(number.length - 1)]);
-        number = number.slice(0,-1);
+        number = number.slice(0,-1); //-1 ko thau ma number.length
       }
     return sliced.reverse().join('').toString();
 }
@@ -37,6 +38,7 @@ const scoreDisplay = document.querySelector('#score');
 const timeDisplay = document.querySelector('#time');
 const message = document.querySelector('#message');
 const seconds = document.querySelector('#seconds');
+const playAgain = document.querySelector('#play-again');
 
 const words = [
     'xfd|f]',
@@ -272,8 +274,31 @@ function countdown() {
 
 //Check game Status
 function checkStatus() {
+
   if (!isPlaying && time === 0) {
     message.innerHTML = ';do ;dfKt ...';
-    score = -1;
+    wordInput.style.display = 'none';
+    playAgain.style.display = '';
+    score = 0;
+  } else {
+    playAgain.style.display = 'none';
+    message.innerHTML = '';
+    wordInput.style.display = '';
   }
 }
+
+//Focus on replay button
+function getFocus() {
+  wordInput.focus();
+}
+//Play Again button
+playAgain.addEventListener('click', (e)=>{
+  //console.log(1);
+  //startMatch;
+  isPlaying = true;
+  time = currentLevel + 1;
+  showWord(words);
+  wordInput.value = '';
+  //wordInput.focus();
+  scoreDisplay.innerHTML = ')';
+});

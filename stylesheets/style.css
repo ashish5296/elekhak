@@ -24,3 +24,15 @@
   0%{opacity: 0;}
   100%{opacity: 1;}
 }
+
+#current-word {
+  font-size: 60px;
+}
+
+#message {
+  font-size: 40px;
+}
+
+#play-again {
+  width: 40%;
+}
