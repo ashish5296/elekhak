@@ -211,7 +211,7 @@ const words = [
 //Initilize Game
 function init(){
   //show number of seconds in UI
-  seconds.innerHTML = numNepali[currentLevel];
+//  seconds.innerHTML = numNepali[currentLevel];
   // Load word form array
   showWord(words);
   //matching word with wordInput
